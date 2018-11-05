@@ -1,0 +1,2 @@
+# JMinor 🗜
+## A JSON Minifier
