@@ -9,12 +9,12 @@ import createDictionary from "./dictionary/createDictionary";
 import decompress from "./minifier/decompress";
 import compress from "./minifier/compress";
 
-import ICompressConfig from "./interfaces/ICompressConfig";
-import IKeyGenerator from "./interfaces/IKeyGenerator";
+import createDefaultKeyGenerator from "./generators/defaultKeyGenerator";
+import createNumericKeyGenerator from "./generators/numericKeyGenerator";
 
 export {
-    ICompressConfig,
-    IKeyGenerator,
+    createDefaultKeyGenerator,
+    createNumericKeyGenerator,
     createDictionary,
     decompress,
     compress

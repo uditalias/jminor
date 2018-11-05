@@ -1,7 +1,7 @@
 import ICompressConfig from "../interfaces/ICompressConfig";
 import * as merge from "deepmerge";
 
-export default function enhanceConfig(config: ICompressConfig): ICompressConfig {
+export default function enhanceConfig(config: ICompressConfig = {}): ICompressConfig {
     const defaults = {
         translateKeys: true,
         null: {
