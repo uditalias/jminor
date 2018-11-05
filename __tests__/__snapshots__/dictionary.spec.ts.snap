@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaultKeyGenerator should export raw dictionary 1`] = `
+Object {
+  "eighth": "h",
+  "fifth": "e",
+  "first": "a",
+  "fourth": "d",
+  "ninth": "i",
+  "second": "b",
+  "seventh": "g",
+  "sixth": "f",
+  "third": "c",
+}
+`;
+
+exports[`defaultKeyGenerator should extend dictionary width more data 1`] = `
+Object {
+  "fifth": "e",
+  "first": "a",
+  "fourth": "d",
+  "second": "b",
+  "third": "c",
+}
+`;

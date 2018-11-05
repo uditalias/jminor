@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`decompress should decompress data 1`] = `
+Object {
+  "first": 1,
+  "second": 0,
+  "seventh": Object {
+    "eighth": "test",
+  },
+  "sixth": Object {},
+  "third": Array [
+    Object {
+      "fifth": "",
+      "fourth": 4,
+    },
+    Object {
+      "fifth": false,
+      "fourth": true,
+    },
+  ],
+}
+`;

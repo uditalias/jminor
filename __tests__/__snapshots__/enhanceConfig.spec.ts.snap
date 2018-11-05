@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`enhanceConfig should extend exclude array 1`] = `
+Object {
+  "boolean": Object {
+    "exclude": Array [],
+    "removeFalse": false,
+  },
+  "null": Object {
+    "exclude": Array [
+      "first",
+    ],
+    "removeNull": true,
+  },
+  "number": Object {
+    "exclude": Array [],
+    "removeZero": false,
+  },
+  "string": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
+  },
+  "translateKeys": true,
+}
+`;
+
+exports[`enhanceConfig should return default config 1`] = `
+Object {
+  "boolean": Object {
+    "exclude": Array [],
+    "removeFalse": false,
+  },
+  "null": Object {
+    "exclude": Array [],
+    "removeNull": false,
+  },
+  "number": Object {
+    "exclude": Array [],
+    "removeZero": false,
+  },
+  "string": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
+  },
+  "translateKeys": true,
+}
+`;

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compress should compress data 1`] = `
+Object {
+  "a": 1,
+  "b": 0,
+  "c": Array [
+    Object {
+      "d": 4,
+      "e": "",
+    },
+    Object {
+      "d": true,
+      "e": false,
+    },
+  ],
+  "f": null,
+  "g": Object {
+    "h": "test",
+  },
+}
+`;
+
+exports[`compress should compress data without empty strings 1`] = `
+Object {
+  "a": 1,
+  "b": 0,
+  "c": Array [
+    Object {
+      "d": 4,
+    },
+    Object {
+      "d": true,
+      "e": false,
+    },
+  ],
+  "f": null,
+  "g": Object {
+    "h": "test",
+  },
+}
+`;
+
+exports[`compress should compress data without false values 1`] = `
+Object {
+  "a": 1,
+  "b": 0,
+  "c": Array [
+    Object {
+      "d": 4,
+      "e": "",
+    },
+    Object {
+      "d": true,
+    },
+  ],
+  "f": null,
+  "g": Object {
+    "h": "test",
+  },
+}
+`;
+
+exports[`compress should compress data without null values 1`] = `
+Object {
+  "a": 1,
+  "b": 0,
+  "c": Array [
+    Object {
+      "d": 4,
+      "e": "",
+    },
+    Object {
+      "d": true,
+      "e": false,
+    },
+  ],
+  "g": Object {
+    "h": "test",
+  },
+}
+`;
+
+exports[`compress should compress data without zero values 1`] = `
+Object {
+  "a": 1,
+  "c": Array [
+    Object {
+      "d": 4,
+      "e": "",
+    },
+    Object {
+      "d": true,
+      "e": false,
+    },
+  ],
+  "f": null,
+  "g": Object {
+    "h": "test",
+  },
+}
+`;
+
+exports[`compress should not compress data 1`] = `
+Object {
+  "first": 1,
+  "second": 0,
+  "seventh": Object {
+    "eighth": "test",
+  },
+  "sixth": null,
+  "third": Array [
+    Object {
+      "fifth": "",
+      "fourth": 4,
+    },
+    Object {
+      "fifth": false,
+      "fourth": true,
+    },
+  ],
+}
+`;

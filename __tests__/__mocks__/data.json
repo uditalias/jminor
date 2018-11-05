@@ -1,0 +1,18 @@
+{
+    "first": 1,
+    "second": 0,
+    "third": [
+        {
+            "fourth": 4,
+            "fifth": ""
+        },
+        {
+            "fourth": true,
+            "fifth": false
+        }
+    ],
+    "sixth": null,
+    "seventh": {
+        "eighth": "test"
+    }
+}
