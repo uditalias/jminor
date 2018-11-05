@@ -1,6 +1,7 @@
 'use strict';
 
 import { createDictionary, decompress } from "../lib";
+
 const data = require("./__mocks__/data.json");
 const compressed = require("./__mocks__/compressed.json");
 

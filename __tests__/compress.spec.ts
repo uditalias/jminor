@@ -1,6 +1,8 @@
 'use strict';
 
+import createNumericKeyGenerator from "../lib/generators/numericKeyGenerator";
 import { createDictionary, compress } from "../lib";
+
 const data = require("./__mocks__/data.json");
 
 describe('compress', () => {
@@ -74,5 +76,14 @@ describe('compress', () => {
 
         expect(compressed).toMatchSnapshot();
 
+    });
+
+    it('should compress with numeric key generator', () => {
+
+        dictionary = createDictionary(createNumericKeyGenerator).fromJSON(data);;
+
+        const compressed = compress(data, dictionary);
+
+        expect(compressed).toMatchSnapshot();
     });
 });

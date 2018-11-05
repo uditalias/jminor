@@ -7,11 +7,11 @@
     "tsc": "tsc",
     "tsc:watch": "tsc -w",
     "test": "jest --verbose",
-    "test:watch": "jest --verbose --watch",
+    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "build:umd": "webpack",
     "clean": "rimraf lib/",
-    "prepublish": "npm run clean && npm run tsc && npm run build:umd && npm run test"
+    "prepublish": "npm run clean && npm run tsc && npm run build:umd && npm run test && npm version"
   },
   "files": [
     "lib",

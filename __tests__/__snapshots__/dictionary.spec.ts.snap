@@ -14,7 +14,7 @@ Object {
 }
 `;
 
-exports[`defaultKeyGenerator should extend dictionary width more data 1`] = `
+exports[`defaultKeyGenerator should extend dictionary with more data 1`] = `
 Object {
   "fifth": "e",
   "first": "a",

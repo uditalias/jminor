@@ -101,6 +101,27 @@ Object {
 }
 `;
 
+exports[`compress should compress with numeric key generator 1`] = `
+Object {
+  "1": 1,
+  "2": 0,
+  "3": Array [
+    Object {
+      "4": 4,
+      "5": "",
+    },
+    Object {
+      "4": true,
+      "5": false,
+    },
+  ],
+  "6": null,
+  "7": Object {
+    "8": "test",
+  },
+}
+`;
+
 exports[`compress should not compress data 1`] = `
 Object {
   "first": 1,

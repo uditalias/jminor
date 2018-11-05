@@ -43,7 +43,7 @@ describe('defaultKeyGenerator', () => {
         expect(dictionary.export()).toMatchSnapshot();
     });
 
-    it('should extend dictionary width more data', () => {
+    it('should extend dictionary with more data', () => {
         const dictionary = createDictionary().import({
             first: "a",
             second: "b"
@@ -85,5 +85,5 @@ describe('defaultKeyGenerator', () => {
 
         dictionary.setKeyGenerator(createDefaultKeyGenerator())
     });
-    
+
 });
