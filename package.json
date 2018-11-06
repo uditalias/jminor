@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "JSON Minifier",
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc -w",
@@ -17,6 +18,10 @@
     "lib",
     "umd"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uditalias/jminor.git"
+  },
   "keywords": [
     "json",
     "minify",
@@ -44,5 +49,8 @@
   },
   "dependencies": {
     "deepmerge": "2.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/uditalias/jminor/issues"
   }
 }
