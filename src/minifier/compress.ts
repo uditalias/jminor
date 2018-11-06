@@ -28,7 +28,7 @@ function _compress(
 
             set(ckey, json[key].map((x, i) => {
 
-                const item = compress(x, dictionary, config);
+                const item = _compress(x, dictionary, config);
 
                 if (!shouldIgnoreEntry(i, item, config)) {
                     return item;
@@ -42,7 +42,7 @@ function _compress(
 
         } else if (isObject(json[key])) {
 
-            set(ckey, compress(json[key], dictionary, config) || {});
+            set(ckey, _compress(json[key], dictionary, config) || {});
 
             if (shouldIgnoreEmptyObject(key, res[ckey], config)) {
                 delete res[ckey];
