@@ -17,6 +17,16 @@
     "lib",
     "umd"
   ],
+  "keywords": [
+    "json",
+    "minify",
+    "payload",
+    "minified",
+    "minifier",
+    "mangle",
+    "minor",
+    "small"
+  ],
   "author": "Udi Talias <udi.talias@gmail.com>",
   "license": "MIT",
   "devDependencies": {
