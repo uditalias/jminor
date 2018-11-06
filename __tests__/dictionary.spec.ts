@@ -61,7 +61,7 @@ describe('defaultKeyGenerator', () => {
         expect(dictionary.export()).toMatchSnapshot();
     });
 
-    it('should get ckey for ket', () => {
+    it('should get ckey for key', () => {
         const dictionary = createDictionary().import({
             first: "a",
             second: "b"
