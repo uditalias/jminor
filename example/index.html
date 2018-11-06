@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JMinor Example</title>
+
+    <script src="../umd/jminor.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #aaa;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            margin: 0;
+        }
+    </style>
+    <script>
+
+        const data = {
+            "first": 1,
+            "second": 0,
+            "third": [
+                {
+                    "fourth": 4,
+                    "fifth": ""
+                },
+                {
+                    "fourth": true,
+                    "fifth": false
+                }
+            ],
+            "sixth": null,
+            "seventh": {
+                "eighth": "test",
+                "tenth": {},
+                "eleventh": []
+            },
+            "twelve": {
+                "thirteen": false
+            },
+            "fourteen": [{
+                "fifteen": 0
+            }]
+        };
+
+        console.time("DICTIONARY_CREATION");
+        const dictionary = JMinor.createDictionary().fromJSON(data);
+        console.timeEnd("DICTIONARY_CREATION");
+
+        console.time("COMPRESSION");
+        const compressed = JMinor.compress(data, dictionary, {
+            null: {
+                removeNull: true
+            },
+            number: {
+                removeZero: true
+            },
+            string: {
+                removeEmpty: true
+            },
+            boolean: {
+                removeFalse: true
+            },
+            array: {
+                removeEmpty: true
+            },
+            object: {
+                removeEmpty: true
+            }
+        });
+        console.timeEnd("COMPRESSION");
+
+        console.time("DECOMPRESS");
+        const decompressed = JMinor.decompress(compressed, dictionary);
+        console.timeEnd("DECOMPRESS");
+
+        const full_bytes = JSON.stringify(data).length;
+        const compressed_bytes = JSON.stringify(compressed).length;
+        const decompressed_bytes = JSON.stringify(decompressed).length;
+
+        console.log("ORIGINAL: ", data);
+        console.log("COMPRESSED: ", compressed);
+        console.log("DECOMPRESSED: ", decompressed);
+        console.log(`ORIGINAL SIZE: ${full_bytes} bytes`);
+        console.log(`COMPRESSED SIZE: ${compressed_bytes} bytes`);
+        console.log(`DECOMPRESSED SIZE: ${decompressed_bytes} bytes`);
+        console.log(`COMPRESSION RATE: ${Math.floor(compressed_bytes / full_bytes * 100 - 100)}%`);
+
+
+    </script>
+</head>
+
+<body>
+    <div style="width: 100vw; height: 100vh; font-size: 2vh; display: flex; align-items: center; justify-content: center;">
+        <div>
+            <h1>JMinor</h1>
+            <h2>open your devtools console</h2>
+        </div>
+    </div>
+</body>
+
+</html>
