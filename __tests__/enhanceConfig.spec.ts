@@ -1,7 +1,6 @@
 'use strict';
 
 import enhanceConfig from "../lib/minifier/enhanceConfig";
-import ICompressConfig from "../lib/interfaces/ICompressConfig";
 
 describe('enhanceConfig', () => {
 

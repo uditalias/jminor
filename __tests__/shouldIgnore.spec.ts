@@ -1,7 +1,7 @@
 'use strict';
 
 import { shouldIgnoreEntry } from "../lib/minifier/shouldIgnore";
-import ICompressConfig from "../lib/interfaces/ICompressConfig";
+import ICompressConfig from "../lib/minifier/ICompressConfig";
 
 describe('shouldIgnoreEntry', () => {
 
