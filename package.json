@@ -2,6 +2,9 @@
   "name": "jminor",
   "version": "1.0.1",
   "description": "JSON Minifier",
+  "bin": {
+    "jminor": "./bin/index.js"
+  },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
