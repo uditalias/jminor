@@ -68,8 +68,8 @@ Or the minified version:
 
 ## Usage
 
-
-### Dictionary
+<details>
+<summary><b>Dictionary</b></summary>
 
 The first thing to do is to create a Dictionary. The dictionary will hold all the original payload keys mapped to their translations.
 
@@ -142,8 +142,11 @@ A key generator is a module that generates dictionary keys.
 | ckey | String | true | - | - |
 
 - Translates generated key to original key, if it exist in the dictionary.
+</details>
 
-### Compress
+
+<details>
+<summary><b>Compress</b></summary>
 
 After we have our dictionary with the generated keys, we can go and compress some data.
 
@@ -237,8 +240,10 @@ const compressed = compress(data, dictionary, config);
 ```
 
 ***Note!*** All config keys are optionals
+</details>
 
-### Decompress
+<details>
+<summary><b>Decompress</b></summary>
 
 After compressing some data we can decompres it.  
 ***Note!*** that some data may be truncated based on your compress config.
@@ -255,8 +260,10 @@ const data = decompress(compressed, dictionary);
 | - | - | - | - | - |
 | compressed | JSON | true | - | A JSON with keys that presented in the dictionary |
 | dictionary | Dictionary | true | - | - |
+</details>
 
-## Generators
+<details>
+<summary><b>Generators</b></summary>
 
 ### JMinor comes with two built in key generators:
 - `DefaultKeyGenerator` - generates keys in the form of `aaa`, `aab`, `zxc` etc.  
@@ -266,6 +273,11 @@ const data = decompress(compressed, dictionary);
 You can create your own key generator, if you will, you should implement the [`IKeyGenerator`](src/generators/IKeyGenerator.ts) interface.
 
 See the `generators/` folder for source example
+</details>
+
+## Examples
+
+Check out `example/` folder for usage examples
 
 ## License
 
