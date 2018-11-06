@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc -w",
-    "test": "jest --verbose",
+    "test": "jest --verbose --coverage",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "build:umd": "webpack",
