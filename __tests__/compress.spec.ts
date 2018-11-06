@@ -86,4 +86,58 @@ describe('compress', () => {
 
         expect(compressed).toMatchSnapshot();
     });
+
+    it('should compress and remove empty objects', () => {
+
+        const compressed = compress(data, dictionary, {
+            object: {
+                removeEmpty: true
+            }
+        });
+
+        expect(compressed).toMatchSnapshot();
+
+    });
+
+    it('should compress and remove empty arrays', () => {
+
+        const compressed = compress(data, dictionary, {
+            array: {
+                removeEmpty: true
+            }
+        });
+
+        expect(compressed).toMatchSnapshot();
+
+    });
+
+    it('should compress and remove empty result object', () => {
+
+        const compressed = compress(data, dictionary, {
+            object: {
+                removeEmpty: true
+            },
+            boolean: {
+                removeFalse: true
+            }
+        });
+
+        expect(compressed).toMatchSnapshot();
+
+    });
+
+    it('should compress and remove empty result array', () => {
+
+        const compressed = compress(data, dictionary, {
+            array: {
+                removeEmpty: true
+            },
+            number: {
+                removeZero: true
+            }
+        });
+
+        expect(compressed).toMatchSnapshot();
+
+    });
 });

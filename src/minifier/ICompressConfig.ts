@@ -15,5 +15,13 @@ export default interface ICompressConfig {
     number?: {
         removeZero?: boolean;
         exclude?: string[];
+    },
+    object?: {
+        removeEmpty?: boolean;
+        exclude?: string[];
+    },
+    array?: {
+        removeEmpty?: boolean;
+        exclude?: string[];
     }
 }

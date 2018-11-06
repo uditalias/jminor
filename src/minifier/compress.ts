@@ -1,15 +1,16 @@
-import { isPrimitive, isArray, isObject } from "../utils";
+import { isPrimitive, isArray, isObject, isDefined } from "../utils";
 import ICompressConfig from "./ICompressConfig";
 import { Dictionary } from "../dictionary/createDictionary";
 import enhanceConfig from "./enhanceConfig";
-import { shouldIgnoreEntry } from "./shouldIgnore";
+import { shouldIgnoreEntry, shouldIgnoreEmptyArray, shouldIgnoreEmptyObject } from "./shouldIgnore";
 
 function _compress(
     json: any,
     dictionary: Dictionary,
     config: ICompressConfig
 ): any {
-    const res: any = {};
+    let res: any;
+    const set = (key, value) => (res = res || {})[key] = value;
 
     for (const key in json) {
         const ckey = config.translateKeys ? dictionary.ktoc(key) : key;
@@ -19,13 +20,21 @@ function _compress(
         }
 
         if (isPrimitive(json[key])) {
-            res[ckey] = json[key];
+            set(ckey, json[key]);
         } else if (isArray(json[key])) {
-            res[ckey] = json[key].map((x) => compress(x, dictionary, config));
+            set(ckey, json[key].map((x) => compress(x, dictionary, config)).filter(isDefined));
+
+            if (shouldIgnoreEmptyArray(key, res[ckey], config)) {
+                delete res[ckey];
+            }
         } else if (isObject(json[key])) {
-            res[ckey] = compress(json[key], dictionary, config);
+            set(ckey, compress(json[key], dictionary, config) || {});
+
+            if (shouldIgnoreEmptyObject(key, res[ckey], config)) {
+                delete res[ckey];
+            }
         } else {
-            res[ckey] = json[key];
+            set(ckey, json[key]);
         }
     }
 

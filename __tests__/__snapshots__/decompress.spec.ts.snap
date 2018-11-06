@@ -3,9 +3,16 @@
 exports[`decompress should decompress data 1`] = `
 Object {
   "first": 1,
+  "fourteen": Array [
+    Object {
+      "fifteen": 0,
+    },
+  ],
   "second": 0,
   "seventh": Object {
     "eighth": "test",
+    "eleventh": Array [],
+    "tenth": Object {},
   },
   "sixth": null,
   "third": Array [
@@ -18,5 +25,8 @@ Object {
       "fourth": true,
     },
   ],
+  "twelve": Object {
+    "thirteen": false,
+  },
 }
 `;

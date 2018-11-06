@@ -1,6 +1,6 @@
 'use strict';
 
-import { isArray, isBoolean, isNumber, isObject, isString, isPrimitive, reverse, clone } from "../lib/utils";
+import { isArray, isBoolean, isNumber, isObject, isString, isPrimitive, reverse, clone, isDefined } from "../lib/utils";
 
 describe('utils', () => {
 
@@ -129,6 +129,33 @@ describe('utils', () => {
             expect(isPrimitive(1)).toBeTruthy();
 
             expect(isPrimitive(true)).toBeTruthy();
+        });
+    });
+
+    describe('isDefined', () => {
+
+        it('should return true when passing defined values', () => {
+
+            const value = 1;
+
+            expect(isDefined("")).toBeTruthy();
+
+            expect(isDefined(1)).toBeTruthy();
+
+            expect(isDefined(true)).toBeTruthy();
+
+            expect(isDefined(value)).toBeTruthy();
+        });
+
+        it('should return false when passing undefined values', () => {
+
+            let a;
+
+            expect(isDefined(a)).toBeFalsy();
+
+            expect(isDefined(undefined)).toBeFalsy();
+
+            expect(isDefined((() => { })())).toBeFalsy();
         });
     });
 

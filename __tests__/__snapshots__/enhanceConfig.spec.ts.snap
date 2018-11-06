@@ -2,6 +2,10 @@
 
 exports[`enhanceConfig should extend exclude array 1`] = `
 Object {
+  "array": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
+  },
   "boolean": Object {
     "exclude": Array [],
     "removeFalse": false,
@@ -16,6 +20,10 @@ Object {
     "exclude": Array [],
     "removeZero": false,
   },
+  "object": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
+  },
   "string": Object {
     "exclude": Array [],
     "removeEmpty": false,
@@ -26,6 +34,10 @@ Object {
 
 exports[`enhanceConfig should return default config 1`] = `
 Object {
+  "array": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
+  },
   "boolean": Object {
     "exclude": Array [],
     "removeFalse": false,
@@ -37,6 +49,10 @@ Object {
   "number": Object {
     "exclude": Array [],
     "removeZero": false,
+  },
+  "object": Object {
+    "exclude": Array [],
+    "removeEmpty": false,
   },
   "string": Object {
     "exclude": Array [],

@@ -1,4 +1,4 @@
-import { isBoolean, isNumber, isString } from "../utils";
+import { isBoolean, isNumber, isString, isObject, isArray } from "../utils";
 import ICompressConfig from "./ICompressConfig";
 
 export function shouldIgnorePrimitive(key: string, value: any, config: ICompressConfig): boolean {
@@ -12,13 +12,22 @@ export function shouldIgnorePrimitive(key: string, value: any, config: ICompress
 }
 
 export function shouldIgnoreNull(key: string, value: any, config: ICompressConfig): boolean {
-
     return config.null.removeNull && value === null && !~config.null.exclude.indexOf(key);
+}
+
+export function shouldIgnoreEmptyObject(key: string, value: any, config: ICompressConfig): boolean {
+    return config.object.removeEmpty && isObject(value) && Object.keys(value).length === 0 && !~config.object.exclude.indexOf(key);
+}
+
+export function shouldIgnoreEmptyArray(key: string, value: any, config: ICompressConfig): boolean {
+    return config.array.removeEmpty && isArray(value) && value.length === 0 && !~config.array.exclude.indexOf(key);
 }
 
 export function shouldIgnoreEntry(key: string, value: any, config: ICompressConfig): boolean {
     return (
         shouldIgnorePrimitive(key, value, config) ||
-        shouldIgnoreNull(key, value, config)
+        shouldIgnoreNull(key, value, config) ||
+        shouldIgnoreEmptyObject(key, value, config) ||
+        shouldIgnoreEmptyArray(key, value, config)
     );
 }

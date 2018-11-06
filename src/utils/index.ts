@@ -10,6 +10,10 @@ export function isString(value) {
     return typeof value === "string";
 }
 
+export function isDefined(value) {
+    return typeof value !== "undefined";
+}
+
 export function isPrimitive(value) {
     return isString(value) || isNumber(value) || isBoolean(value);
 }

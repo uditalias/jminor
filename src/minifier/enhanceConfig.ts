@@ -19,6 +19,14 @@ export default function enhanceConfig(config: ICompressConfig = {}): ICompressCo
         number: {
             removeZero: false,
             exclude: []
+        },
+        object: {
+            removeEmpty: false,
+            exclude: []
+        },
+        array: {
+            removeEmpty: false,
+            exclude: []
         }
     };
 
