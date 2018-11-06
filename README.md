@@ -37,7 +37,7 @@ JMinor will help you achive this task by reducing the size of your payload with 
 }
 ```
 
-#### And Then back into (~61 Bytes):
+#### And then back into (~61 Bytes):
 ```json
 {
     "my_very_long_key": 1,
