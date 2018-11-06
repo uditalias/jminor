@@ -63,7 +63,7 @@ Or the minified version:
 <script src="https://unpkg.com/jminor/umd/jminor.min.js"></script>
 ```
 
-> You can use JMinor both in the Client and the Service (or any other ECMAScript runtime).
+> You can use JMinor both in the Client and the Server (or any other ECMAScript runtime).
 
 
 ## Usage
