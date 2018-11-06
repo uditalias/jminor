@@ -1,7 +1,6 @@
 'use strict';
 
-import createNumericKeyGenerator from "../lib/generators/numericKeyGenerator";
-import { createDictionary, compress } from "../lib";
+import { createDictionary, compress, createNumericKeyGenerator } from "../lib";
 
 const data = require("./__mocks__/data.json");
 
@@ -134,8 +133,33 @@ describe('compress', () => {
             },
             number: {
                 removeZero: true
+            },
+            object: {
+                removeEmpty: true
             }
         });
+
+        expect(compressed).toMatchSnapshot();
+
+    });
+
+    it('should compress and remove undefined values', () => {
+
+        const dict = createDictionary().fromJSON({
+            "fist": undefined,
+            "second": {
+                "third": undefined,
+                "fourth": 2
+            }
+        });
+
+        const compressed = compress({
+            "fist": undefined,
+            "second": {
+                "third": undefined,
+                "fourth": 2
+            }
+        }, dict);
 
         expect(compressed).toMatchSnapshot();
 

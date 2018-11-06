@@ -76,7 +76,6 @@ Object {
   "f": null,
   "g": Object {
     "h": "test",
-    "i": Object {},
   },
   "k": Object {
     "l": false,
@@ -107,6 +106,14 @@ Object {
       "n": 0,
     },
   ],
+}
+`;
+
+exports[`compress should compress and remove undefined values 1`] = `
+Object {
+  "b": Object {
+    "d": 2,
+  },
 }
 `;
 
@@ -251,7 +258,9 @@ Object {
   "k": Object {
     "l": false,
   },
-  "m": Array [],
+  "m": Array [
+    Object {},
+  ],
 }
 `;
 

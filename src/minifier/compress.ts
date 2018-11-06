@@ -9,10 +9,11 @@ function _compress(
     dictionary: Dictionary,
     config: ICompressConfig
 ): any {
-    let res: any;
-    const set = (key, value) => (res = res || {})[key] = value;
+    let res: any = {};
+    const set = (key, value) => res[key] = value;
 
     for (const key in json) {
+
         const ckey = config.translateKeys ? dictionary.ktoc(key) : key;
 
         if (shouldIgnoreEntry(key, json[key], config)) {
@@ -20,21 +21,37 @@ function _compress(
         }
 
         if (isPrimitive(json[key])) {
+
             set(ckey, json[key]);
+
         } else if (isArray(json[key])) {
-            set(ckey, json[key].map((x) => compress(x, dictionary, config)).filter(isDefined));
+
+            set(ckey, json[key].map((x, i) => {
+
+                const item = compress(x, dictionary, config);
+
+                if (!shouldIgnoreEntry(i, item, config)) {
+                    return item;
+                }
+
+            }).filter(isDefined));
 
             if (shouldIgnoreEmptyArray(key, res[ckey], config)) {
                 delete res[ckey];
             }
+
         } else if (isObject(json[key])) {
+
             set(ckey, compress(json[key], dictionary, config) || {});
 
             if (shouldIgnoreEmptyObject(key, res[ckey], config)) {
                 delete res[ckey];
             }
-        } else {
+
+        } else if (isDefined(json[key])) {
+
             set(ckey, json[key]);
+
         }
     }
 

@@ -11,8 +11,10 @@ export class Dictionary {
         this._rdict = {};
     }
 
-    public setKeyGenerator(keyGenerator: IKeyGenerator): Dictionary {
+    public replaceKeyGenerator(keyGenerator: IKeyGenerator): Dictionary {
         this._keyGen = keyGenerator;
+        this._dict = {};
+        this._rdict = {};
 
         return this;
     }
@@ -54,7 +56,7 @@ export class Dictionary {
 
     private _setGeneratorLastKey() {
         const ckeys = Object.keys(this._rdict);
-        
+
         ckeys.sort(this._keyGen.sortKeys);
 
         this._keyGen.setLastKey(ckeys[ckeys.length - 1]);

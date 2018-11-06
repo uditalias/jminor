@@ -81,10 +81,10 @@ describe('defaultKeyGenerator', () => {
         expect(dictionary.ctok("third")).toBe("third");
     });
 
-    it('should set key generator', () => {
+    it('should replace key generator', () => {
         const dictionary = createDictionary();
 
-        dictionary.setKeyGenerator(createDefaultKeyGenerator())
+        dictionary.replaceKeyGenerator(createDefaultKeyGenerator())
     });
 
 });
