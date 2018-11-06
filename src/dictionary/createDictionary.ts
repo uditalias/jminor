@@ -1,6 +1,6 @@
 import createDefaultKeyGenerator from "../generators/defaultKeyGenerator";
 import { isArray, isObject, reverse, clone } from "../utils";
-import IKeyGenerator from "../interfaces/IKeyGenerator";
+import IKeyGenerator from "../generators/IKeyGenerator";
 
 export class Dictionary {
     private _dict: { [index: string]: string };
@@ -54,7 +54,8 @@ export class Dictionary {
 
     private _setGeneratorLastKey() {
         const ckeys = Object.keys(this._rdict);
-        ckeys.sort((a: any, b: any) => a.length > b.length ? a : a.length < b.length ? b : a > b ? a : b);
+        
+        ckeys.sort(this._keyGen.sortKeys);
 
         this._keyGen.setLastKey(ckeys[ckeys.length - 1]);
     }

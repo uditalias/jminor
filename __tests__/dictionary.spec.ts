@@ -2,6 +2,7 @@
 
 import createDictionary from "../lib/dictionary/createDictionary"
 import createDefaultKeyGenerator from "../lib/generators/defaultKeyGenerator";
+import createNumericKeyGenerator from "../lib/generators/numericKeyGenerator";
 
 describe('defaultKeyGenerator', () => {
 
@@ -14,13 +15,13 @@ describe('defaultKeyGenerator', () => {
 
     it('should import raw dictionary data', () => {
 
-        const dictionary = createDictionary().import({
-            first: "a",
-            second: "b"
+        const dictionary = createDictionary(createNumericKeyGenerator).import({
+            first: "1",
+            second: "2"
         });
 
-        expect(dictionary.ctok("a")).toBe("first");
-        expect(dictionary.ctok("b")).toBe("second");
+        expect(dictionary.ctok("1")).toBe("first");
+        expect(dictionary.ctok("2")).toBe("second");
     });
 
     it('should export raw dictionary', () => {

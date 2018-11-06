@@ -1,4 +1,4 @@
-import ICompressConfig from "../interfaces/ICompressConfig";
+import ICompressConfig from "./ICompressConfig";
 import * as merge from "deepmerge";
 
 export default function enhanceConfig(config: ICompressConfig = {}): ICompressConfig {

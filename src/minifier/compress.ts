@@ -1,5 +1,5 @@
 import { isPrimitive, isArray, isObject } from "../utils";
-import ICompressConfig from "../interfaces/ICompressConfig";
+import ICompressConfig from "./ICompressConfig";
 import { Dictionary } from "../dictionary/createDictionary";
 import enhanceConfig from "./enhanceConfig";
 import { shouldIgnoreEntry } from "./shouldIgnore";

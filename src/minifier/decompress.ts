@@ -11,7 +11,7 @@ export default function decompress<T=any>(compressed: any, dictionary: Dictionar
             res[key] = compressed[ckey];
         } else if (isArray(compressed[ckey])) {
             res[key] = compressed[ckey].map((x) => decompress(x, dictionary));
-        } else if (isObject(compressed)) {
+        } else if (isObject(compressed[ckey])) {
             res[key] = decompress(compressed[ckey], dictionary);
         } else {
             res[key] = compressed[ckey];

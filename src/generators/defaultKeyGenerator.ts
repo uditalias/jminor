@@ -1,4 +1,4 @@
-import IKeyGenerator from "../interfaces/IKeyGenerator";
+import IKeyGenerator from "./IKeyGenerator";
 
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 const firstChar = ALPHABET.charAt(0);
@@ -19,33 +19,40 @@ export class DefaultKeyGenerator implements IKeyGenerator {
         return this;
     }
 
+    public sortKeys(keyA: string, keyB: string): number {
+        return keyA.length > keyB.length ? 1 : keyA.length < keyB.length ? -1 : keyA > keyB ? 1 : 0;
+    }
+
     public next(): string {
         if (!this._lastKey) {
             return this._lastKey = ALPHABET.charAt(0);
         }
 
         let parts = this._lastKey.split("");
-        const currLastChar = this._lastKey.charAt(this._lastKey.length - 1);
 
-        if (currLastChar !== lastChar) {
-            parts[parts.length - 1] = nextChar(currLastChar);
-        } else {
-            let shouldAddChar = true;
-            parts = parts.map((char) => {
-                if (char !== lastChar) {
-                    shouldAddChar = false;
-                }
-                return nextChar(char);
-            });
+        const newParts = [];
+        let shouldAddChar = true;
+        let incrementNextChar = true;
 
-            if (shouldAddChar) {
-                parts.push(firstChar);
+        for (let i = parts.length - 1; i >= 0; i--) {
+            if (parts[i] === lastChar) {
+                newParts.unshift(firstChar);
+                incrementNextChar = true;
+            } else if (incrementNextChar) {
+                newParts.unshift(nextChar(parts[i]));
+                shouldAddChar = false;
+                incrementNextChar = false;
+            } else {
+                shouldAddChar = false;
+                newParts.unshift(parts[i]);
             }
         }
 
-        this._lastKey = parts.join("");
+        if (shouldAddChar) {
+            newParts.push(firstChar);
+        }
 
-        return this._lastKey;
+        return this._lastKey = newParts.join("");
     }
 }
 

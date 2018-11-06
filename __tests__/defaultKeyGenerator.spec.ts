@@ -19,14 +19,20 @@ describe('defaultKeyGenerator', () => {
     });
 
     it('should set last key', () => {
-        const keyGenerator = createDefaultKeyGenerator().setLastKey("abc");
+        const keyGenerator = createDefaultKeyGenerator().setLastKey("abz");
 
-        expect(keyGenerator.next()).toBe("abd");
+        expect(keyGenerator.next()).toBe("aca");
     });
 
     it('should rotate next keys', () => {
         const keyGenerator = createDefaultKeyGenerator().setLastKey("z");
 
         expect(keyGenerator.next()).toBe("aa");
+    });
+
+    it('should push next key', () => {
+        const keyGenerator = createDefaultKeyGenerator().setLastKey("zz");
+
+        expect(keyGenerator.next()).toBe("aaa");
     });
 });

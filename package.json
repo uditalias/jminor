@@ -11,7 +11,7 @@
     "test:cov": "jest --coverage",
     "build:umd": "webpack",
     "clean": "rimraf lib/",
-    "prepublish": "npm run clean && npm run tsc && npm run build:umd && npm run test && npm version"
+    "prepublish": "npm run clean && npm run tsc && npm run build:umd && npm run test"
   },
   "files": [
     "lib",

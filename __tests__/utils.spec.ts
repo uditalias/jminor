@@ -143,6 +143,12 @@ describe('utils', () => {
 
             expect(reverse(obj)).toMatchSnapshot();
         });
+
+        it('should return predicate when its not an object', () => {
+            const predicate = [1, 2, 3];
+
+            expect(predicate === reverse(predicate)).toBeTruthy();
+        })
     });
 
     describe('clone', () => {

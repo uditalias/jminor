@@ -1,5 +1,5 @@
 import { isBoolean, isNumber, isString } from "../utils";
-import ICompressConfig from "../interfaces/ICompressConfig";
+import ICompressConfig from "./ICompressConfig";
 
 export function shouldIgnorePrimitive(key: string, value: any, config: ICompressConfig): boolean {
     const { boolean, number, string } = config;

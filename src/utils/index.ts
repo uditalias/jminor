@@ -19,10 +19,10 @@ export function isArray(value) {
 }
 
 export function isObject(value) {
-    return value && value.constructor === ({}).constructor;
+    return !!value && value.constructor === ({}).constructor;
 }
 
-export function reverse(data: any): { [index: string]: string } {
+export function reverse(data: any): any {
     if (!isObject(data)) {
         return data;
     }

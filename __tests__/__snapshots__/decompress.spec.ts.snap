@@ -7,7 +7,7 @@ Object {
   "seventh": Object {
     "eighth": "test",
   },
-  "sixth": Object {},
+  "sixth": null,
   "third": Array [
     Object {
       "fifth": "",
