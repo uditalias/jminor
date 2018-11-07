@@ -281,6 +281,14 @@ See the `generators/` folder for source example
 
 Check out `example/` folder for usage examples
 
+## Reporting Issues
+
+We use GitHub Issues as the official bug tracker for JMinor. Here are some advices for our users that want to report an issue:
+
+1. Make sure that you are using the latest version of JMinor. The issue that you are about to report may be already fixed in the latest master branch version: https://github.com/uditalias/jminor/tree/master.
+2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed. A JSFiddle is always welcomed, and you can start from this [basic one](https://jsfiddle.net/udidu/7x38s4gb/1).
+3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
