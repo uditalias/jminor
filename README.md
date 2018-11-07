@@ -2,9 +2,11 @@
 
 ### ✂️ A configurable Two-Way JSON minifier to reduce your payload size.
 
-![jminor](https://img.shields.io/npm/v/jminor.svg?style=flat-square)
 [![Travis](https://img.shields.io/travis/uditalias/jminor.svg?style=flat-square)](https://travis-ci.org/uditalias/jminor)
-
+![jminor](https://img.shields.io/npm/v/jminor.svg?style=flat-square)
+![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/jminor.svg?style=flat-square)
+![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/jminor.svg?style=flat-square)
+![GitHub](https://img.shields.io/github/license/uditalias/jminor.svg?style=flat-square)
 
 ## What is it good for?
 
