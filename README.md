@@ -1,4 +1,4 @@
-# JMinor
+# JMinor [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=JMinor%20reduces%20your%20payload%20size%20and%20saves%20you%20bandwidth&url=https://github.com/uditalias/jminor&via=uditalias&hashtags=javascript,JSON,minify,developers,webdeveloper)
 
 ### ✂️ A configurable Two-Way JSON minifier to reduce your payload size.
 
