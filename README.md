@@ -80,7 +80,7 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
         "empty_array": [],
         "another_array": [
             {
-                -"some_number": 0
+-                "some_number": 0
             }
         ]
         ...
@@ -93,7 +93,7 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
         ...
         "empty_array": [],
         "another_array": [
-            -{}
+-            {}
         ]
         ...
     }
@@ -103,8 +103,8 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
     ```diff
     {
         ...
-        -"empty_array": [],
-        -"another_array": []
+-        "empty_array": [],
+-        "another_array": []
         ...
     }
     ```
