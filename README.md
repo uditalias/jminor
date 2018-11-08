@@ -22,9 +22,11 @@ JMinor will help you achive this task by reducing the size of your payload with 
         "a_falsy_value": false,
         "filled_array": [1, 2, 3],
         "empty_array": [],
-        "another_array": [{
-            "some_number": 0
-        }]
+        "another_array": [
+            {
+                "some_number": 0
+            }
+        ]
     }
 }
 ```
@@ -48,6 +50,64 @@ JMinor will help you achive this task by reducing the size of your payload with 
     }
 }
 ```
+
+## Wait what??
+
+I know what you thinking, its kind of weird, where `"empty_array": []` and 
+`"another_array": [{ "some_number": 0 }]` disappeared??
+
+### The config options has all the answers!
+
+```json
+{
+    "number": {
+        "removeZero": true
+    },
+    "object": {
+        "removeEmpty": true
+    },
+    "array": {
+        "removeEmpty": true
+    }
+}
+```
+
+1. We remove all numbers with the value 0 with `number.removeZero` config
+    ```diff
+    {
+        ...
+        "empty_array": [],
+        "another_array": [
+            {
+                -"some_number": 0
+            }
+        ]
+        ...
+    }
+    ```
+2. After that we remove all empty objects with `object.removeEmpty` config
+    ```diff
+    {
+        ...
+        "empty_array": [],
+        "another_array": [
+            -{}
+        ]
+        ...
+    }
+    ```
+3. And in the end, we remove all empty arrays with `array.removeEmpty` config
+    ```diff
+    {
+        ...
+        -"empty_array": [],
+        -"another_array": []
+        ...
+    }
+    ```
+
+See the [configurations](#config-and-defaults) section for more config options.
+
 
 ## Install
 Install via npm with
@@ -164,9 +224,43 @@ const compressed = compress(data, dictionary, config);
 | - | - | - | - | - |
 | data | JSON | true | - | A JSON with keys that presented in the dictionary |
 | dictionary | Dictionary | true | - | - |
-| config | [`ICompressConfig`](src/minifier/ICompressConfig.ts) | false | See below | - |
+| config | [`ICompressConfig`](src/minifier/ICompressConfig.ts) | false | [See below](#config-and-defaults) | - |
+</details>
 
-#### Config and defaults
+<details>
+<summary><b>Decompress</b></summary>
+
+After compressing some data we can decompres it.  
+***Note!*** that some data may be truncated based on your compress config.
+
+```javascript
+import { decompress } from "jminor";
+
+const data = decompress(compressed, dictionary);
+```
+
+**`decompress(compressed, dictionary)`**
+
+| Name | Type | Required | Default | Description |
+| - | - | - | - | - |
+| compressed | JSON | true | - | A JSON with keys that presented in the dictionary |
+| dictionary | Dictionary | true | - | - |
+</details>
+
+<details>
+<summary><b>Generators</b></summary>
+
+### JMinor comes with two built in key generators:
+- `DefaultKeyGenerator` - generates keys in the form of `aaa`, `aab`, `zxc` etc.  
+
+- `NumericKeyGenerator` - generates keys in the form of a numeric ascending series.
+
+You can create your own key generator, if you will, you should implement the [`IKeyGenerator`](src/generators/IKeyGenerator.ts) interface.
+
+See the `generators/` folder for source example
+</details>
+
+## Config and defaults
 ```javascript
 {
     // Translate object keys
@@ -242,40 +336,6 @@ const compressed = compress(data, dictionary, config);
 ```
 
 ***Note!*** All config keys are optionals
-</details>
-
-<details>
-<summary><b>Decompress</b></summary>
-
-After compressing some data we can decompres it.  
-***Note!*** that some data may be truncated based on your compress config.
-
-```javascript
-import { decompress } from "jminor";
-
-const data = decompress(compressed, dictionary);
-```
-
-**`decompress(compressed, dictionary)`**
-
-| Name | Type | Required | Default | Description |
-| - | - | - | - | - |
-| compressed | JSON | true | - | A JSON with keys that presented in the dictionary |
-| dictionary | Dictionary | true | - | - |
-</details>
-
-<details>
-<summary><b>Generators</b></summary>
-
-### JMinor comes with two built in key generators:
-- `DefaultKeyGenerator` - generates keys in the form of `aaa`, `aab`, `zxc` etc.  
-
-- `NumericKeyGenerator` - generates keys in the form of a numeric ascending series.
-
-You can create your own key generator, if you will, you should implement the [`IKeyGenerator`](src/generators/IKeyGenerator.ts) interface.
-
-See the `generators/` folder for source example
-</details>
 
 ## Examples
 
