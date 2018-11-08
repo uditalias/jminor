@@ -73,6 +73,7 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
 ```
 
 1. We remove all numbers with the value 0 with `number.removeZero` config
+
     ```diff
     {
         ...
@@ -86,6 +87,7 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
     }
     ```
 2. After that we remove all empty objects with `object.removeEmpty` config
+
     ```diff
     {
         ...
@@ -97,6 +99,7 @@ I know what you're thinking, its kind of weird, where `"empty_array": []` and
     }
     ```
 3. And in the end, we remove all empty arrays with `array.removeEmpty` config
+
     ```diff
     {
         ...
