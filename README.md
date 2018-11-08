@@ -53,7 +53,7 @@ JMinor will help you achive this task by reducing the size of your payload with 
 
 ## Wait what??
 
-I know what you thinking, its kind of weird, where `"empty_array": []` and 
+I know what you're thinking, its kind of weird, where `"empty_array": []` and 
 `"another_array": [{ "some_number": 0 }]` disappeared??
 
 ### The config options has all the answers!
